@@ -1,0 +1,41 @@
+<% @page_title = "Environments List" %>
+
+<div class="deployment list">
+	<div class="identity">Logged in as: <%= session[:username] %></div>
+	<div><%= link_to("Manage Admin Users", :controller => 'admin_users') %></div>
+	<br />
+	<table class="listing" summary="Deployment list">
+		<tr class="header">
+			<th>Environment</th>
+			<th>Version</th>
+			<th>App URL</th>
+			<th>MCI</th>
+			<th>Security</th>
+			<th>FDSH</th>
+			<th>App Logs</th>
+			<th>System Logs</th>
+			<th>Actions</th>
+		</tr>
+		<% @deployments.each do |deployment| %>
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td><%= deployment.environment %></td>
+			<td><%= deployment.version %></td>
+			<td><%= link_to("View URL", deployment.url.to_s, :target => '_blank') %></td>
+			<td class="center"><%= status_tag(deployment.mci) %></td>
+			<td class="center"><%= status_tag(deployment.security) %></td>
+			<td class="center"><%=status_tag(deployment.fdsh) %></td>
+			<td><%= link_to("View Log", deployment.app_logs.to_s, :target => '_blank') %></td>
+			<td><%= link_to("View Log", deployment.system_logs.to_s, :target => '_blank') %></td>
+			<td class="actions">
+				<%= link_to("Show", {:action => 'show', :id => deployment.id}, :class => 'action show') %><br/>
+				<%= link_to("Edit", {:action => 'edit', :id => deployment.id}, :class => 'action edit') %><br />
+				<%= link_to("Delete", {:action => 'delete', :id => deployment.id}, :class => 'action delete') %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+	<br/>
+	<div class="addNew">
+		<%= link_to("Add New Environment", {:action => 'new'}, :class => 'action new') %>
+	</div>
+</div>

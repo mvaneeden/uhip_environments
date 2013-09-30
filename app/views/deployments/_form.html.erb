@@ -1,0 +1,37 @@
+<table summary="Deployment form fields">
+  <tr>
+    <th>Environment</th>
+    <td>
+    	<%= f.text_field(:environment) %>
+    	
+    </td>
+  </tr>
+  <tr>
+    <th>Version</th>
+    <td><%= f.text_field(:version) %></td>
+  </tr>
+  <tr>
+    <th>URL</th>
+    <td><%= f.text_field(:url) %></td>
+  </tr>
+  <tr>
+    <th>MCI</th>
+    <td><%= f.check_box(:mci) %></td>
+  </tr>
+  <tr>
+    <th>Security</th>
+    <td><%= f.check_box(:security) %></td>
+  </tr>
+  <tr>
+    <th>FDSH</th>
+    <td><%= f.check_box(:fdsh) %></td>
+  </tr>
+  <tr>
+    <th>App Logs</th>
+    <td><%= f.text_field(:app_logs) %></td>
+  </tr>
+  <tr>
+    <th>System Logs</th>
+    <td><%= f.text_field(:system_logs) %></td>
+  </tr>
+</table>

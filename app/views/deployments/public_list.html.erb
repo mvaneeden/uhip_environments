@@ -1,0 +1,28 @@
+<% @page_title = "Environments List" %>
+
+<div class="deployment list">
+	<table class="listing" summary="Deployment list">
+		<tr class="header">
+			<th>Environment</th>
+			<th>Version</th>
+			<th>App URL</th>
+			<th>MCI</th>
+			<th>Security</th>
+			<th>FDSH</th>
+			<th>App Logs</th>
+			<th>System Logs</th>
+		</tr>
+		<% @deployments.each do |deployment| %>
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td><%= deployment.environment %></td>
+			<td><%= deployment.version %></td>
+			<td><%= link_to("View URL", deployment.url.to_s, :target => '_blank') %></td>
+			<td class="center"><%= status_tag(deployment.mci) %></td>
+			<td class="center"><%= status_tag(deployment.security) %></td>
+			<td class="center"><%=status_tag(deployment.fdsh) %></td>
+			<td><%= link_to("View Log", deployment.app_logs.to_s, :target => '_blank') %></td>
+			<td><%= link_to("View Log", deployment.system_logs.to_s, :target => '_blank') %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>

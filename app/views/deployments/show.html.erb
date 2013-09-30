@@ -1,0 +1,48 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="deployment show">
+	<h2>Show Deployment</h2>
+	
+	<table>
+		<tr>
+			<th>Environment</th>
+			<td><%= @deployment.environment %></td>
+		</tr>
+		<tr>
+			<th>Version</th>
+			<td><%= @deployment.version %></td>
+		</tr>
+		<tr>
+			<th>URL</th>
+			<td><%= @deployment.url %></td>
+		</tr>
+		<tr>
+			<th>MCI</th>
+			<td><%= @deployment.mci ? 'true' : 'false' %></td>
+		</tr>
+		<tr>
+			<th>Security</th>
+			<td><%= @deployment.security ? 'true' : 'false' %></td>
+		</tr>
+		<tr>
+			<th>FDSH</th>
+			<td><%= @deployment.fdsh ? 'true' : 'false' %></td>
+		</tr>
+		<tr>
+			<th>App Logs</th>
+			<td><%= @deployment.app_logs %></td>
+		</tr>
+		<tr>
+			<th>System Logs</th>
+			<td><%= @deployment.system_logs %></td>
+		</tr>
+		<tr>
+			<th>Created</th>
+			<td><%= @deployment.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= @deployment.updated_at %></td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,17 @@
+<% @page_title = "Edit Deployment Environment" %>
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="deployment edit">
+  <h2>Edit Deployment Environment</h2>
+
+  <%= form_for(:deployment, :url => {:action => 'update', :id => @deployment.id}) do |f| %>
+  
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Update Deployment") %>
+    </div>
+    
+  <% end %>
+</div>

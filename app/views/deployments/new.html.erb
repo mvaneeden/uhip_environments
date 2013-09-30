@@ -1,0 +1,18 @@
+<% @page_title = "Create a New Environment" %>
+
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="deployment new">
+  <h2>Create Deployment</h2>
+
+  <%= form_for(:deployment, :url => {:action => 'create'}) do |f| %>
+  
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Create Deployment") %>
+    </div>
+    
+  <% end %>
+</div>
